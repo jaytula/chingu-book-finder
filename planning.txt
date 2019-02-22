@@ -1,0 +1,4 @@
+App - state (searchTerm, bookList) lives here
+  Search
+  BookList
+    BookDetail
