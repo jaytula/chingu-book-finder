@@ -4,6 +4,15 @@ import BookList from './components/BookList';
 import './App.css';
 
 class App extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      searchTerm: '',
+      bookList: []
+    }
+  }
+
   render() {
     return (
       <div>
