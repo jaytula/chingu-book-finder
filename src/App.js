@@ -20,6 +20,13 @@ class App extends Component {
     if (response.ok) {
       const json = await response.json();
       console.log(json);
+      this.setState({
+        bookList: json
+      });
+      console.log(`bookList: ${JSON.stringify(this.state.bookList)}`);
+    }
+  }
+
   render() {
     return (
       <div>
