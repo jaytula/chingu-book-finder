@@ -23,7 +23,8 @@ class App extends Component {
       this.setState({
         data: json.items
       });
-      console.log(`bookList: ${JSON.stringify(this.state.bookList)}`);
+      const data = this.state.data;
+      console.log('data: %o', data);
     }
     // TODO: Add error handling
   }
