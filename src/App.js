@@ -30,11 +30,15 @@ class App extends Component {
   }
 
   render() {
+    const { data, searchTerm } = this.state;
+
     return (
       <div className="container">
         <div className="row">
+          <Search searchTerm={searchTerm}></Search>
         </div>
         <div className="row">
+          <BookList data={data}></BookList>
         </div>
       </div>
     );
