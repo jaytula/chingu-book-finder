@@ -35,7 +35,10 @@ class BookList extends Component {
     });
 
     return (
-      <div>
+      <div className="container">
+        <div className="col-12 col-xl-3 col-md-5 m1">
+          {bookList}
+        </div>
       </div>
     );
   }
