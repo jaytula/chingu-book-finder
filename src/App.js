@@ -30,9 +30,11 @@ class App extends Component {
 
   render() {
     return (
-      <div>
-        <Search></Search>
-        <BookList></BookList>
+      <div className="container">
+        <div className="row">
+        </div>
+        <div className="row">
+        </div>
       </div>
     );
   }
