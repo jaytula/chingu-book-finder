@@ -10,7 +10,7 @@ class App extends Component {
 
     this.state = {
       searchTerm: '',
-      bookList: []
+      data: []
     }
   }
 
@@ -21,7 +21,7 @@ class App extends Component {
       const json = await response.json();
       console.log(json);
       this.setState({
-        bookList: json
+        data: json.items
       });
       console.log(`bookList: ${JSON.stringify(this.state.bookList)}`);
     }
