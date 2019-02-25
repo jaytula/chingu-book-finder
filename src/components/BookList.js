@@ -10,7 +10,7 @@ class BookList extends Component {
         id: book.id,
         thumbnail: book.volumeInfo.imageLinks.thumbnail || null,
         title: book.volumeInfo.title,
-        subtitle: book.volumeInfo.subtitle || null,
+        subtitle: book.volumeInfo.subtitle ? ': ' + book.volumeInfo.subtitle : '',
         authors: book.volumeInfo.authors,
         publisher: book.volumeInfo.publisher,
         pageCount: book.volumeInfo.pageCount,
