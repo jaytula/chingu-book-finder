@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Card, CardImg, CardTitle, CardSubtitle, CardBody, Button } from 'reactstrap';
+import { Grid, Card, Image, Button } from 'semantic-ui-react'
 
 class BookList extends Component {
 
@@ -20,26 +20,29 @@ class BookList extends Component {
 
     const bookList = bookData.map(bookItem => {
       return(
-          <Card key={bookItem.id} width="100%">
-            <CardImg src={bookItem.thumbnail} alt={bookItem.title} className="card-img"/>
-            <CardBody>
-              <CardTitle><h4>{bookItem.title}: {bookItem.subtitle}</h4></CardTitle>
-              <CardSubtitle><h5>{bookItem.authors}</h5></CardSubtitle>
-              <p><small>{bookItem.publisher}</small></p>
-              <p>{bookItem.pageCount} pages</p>
-              <p>Average Rating: {bookItem.averageRating}</p>
-              <Button className="btn-success">See More</Button>
-            </CardBody>
-          </Card>
+        <Grid.Column key={bookItem.id}>
+          {/* <Segment> */}
+            <Card>
+              <Image fluid src={bookItem.thumbnail} alt={bookItem.title} className="thumbnail"/>
+              <Card.Content>
+                <Card.Header>{bookItem.title}{bookItem.subtitle}</Card.Header>
+                <Card.Meta className="authors">{bookItem.authors}</Card.Meta>
+                <Card.Meta className="publisher">{bookItem.publisher}</Card.Meta>
+                <p>{bookItem.pageCount} pages</p>
+                <p>Average Rating: {bookItem.averageRating}</p>
+                <Card.Description></Card.Description>
+              <Button primary>See More</Button>
+              </Card.Content>
+            </Card>
+          {/* </Segment> */}
+        </Grid.Column>
       );
     });
 
     return (
-      <div className="container">
-        <div className="col-12 col-xl-3 col-md-5 m1">
-          {bookList}
-        </div>
-      </div>
+      <Grid stackable columns={4}>
+        {bookList}
+      </Grid>
     );
   }
 }
