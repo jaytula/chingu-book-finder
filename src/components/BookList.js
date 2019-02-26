@@ -13,7 +13,7 @@ class BookList extends Component {
         subtitle: book.volumeInfo.subtitle ? ': ' + book.volumeInfo.subtitle : '',
         authors: book.volumeInfo.authors,
         publisher: book.volumeInfo.publisher,
-        pageCount: book.volumeInfo.pageCount,
+        pageCount: book.volumeInfo.pageCount || '?',
         averageRating: book.volumeInfo.averageRating || 'No ratings yet'
       });
     });
