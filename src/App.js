@@ -12,11 +12,20 @@ class App extends Component {
       searchTerm: '',
       data: []
     }
+
+    this.handleChange = this.handleChange.bind(this);
   }
 
   async componentDidMount() {
     const response = await fetch(`https://www.googleapis.com/books/v1/volumes?q=unbearable+lightness+of+being&key=${API_KEY}`);
     // console.log(response);
+  handleChange(event) {
+    this.setState({
+      searchTerm: event.target.value
+    });
+    console.log('searchTerm:', this.state.searchTerm);
+  }
+
     if (response.ok) {
       const json = await response.json();
       console.log(json);
