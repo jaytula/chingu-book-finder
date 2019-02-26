@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { API_KEY } from './config.js';
 import Search from './components/Search';
 import BookList from './components/BookList';
+import { Divider } from 'semantic-ui-react';
 import './App.css';
 
 class App extends Component {
@@ -50,16 +51,16 @@ class App extends Component {
   }
 
   render() {
-    const { data, searchTerm } = this.state;
+    const { data } = this.state;
 
     return (
-      <div className="container">
-        <div className="row">
-          <Search searchTerm={searchTerm}></Search>
-        </div>
-        <div className="row">
-          <BookList data={data}></BookList>
-        </div>
+      <div>
+        <Search
+          handleChange={this.handleChange}
+          handleSearch={this.handleSearch}
+        />
+        <Divider hidden />
+        <BookList data={data} />
       </div>
     );
   }
