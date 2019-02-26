@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Grid, Card, Image, Button } from 'semantic-ui-react'
+import { Grid, Card, Image, Button } from 'semantic-ui-react';
 
 class BookList extends Component {
 
@@ -21,7 +21,6 @@ class BookList extends Component {
     const bookList = bookData.map(bookItem => {
       return(
         <Grid.Column key={bookItem.id}>
-          {/* <Segment> */}
             <Card>
               <Image fluid src={bookItem.thumbnail} alt={bookItem.title} className="thumbnail"/>
               <Card.Content>
@@ -34,7 +33,6 @@ class BookList extends Component {
               <Button primary>See More</Button>
               </Card.Content>
             </Card>
-          {/* </Segment> */}
         </Grid.Column>
       );
     });
