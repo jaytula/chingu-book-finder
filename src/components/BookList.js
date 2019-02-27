@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Grid, Card, Image, Button } from 'semantic-ui-react';
+import { Grid, Card, Image, Button, Modal, Header, Icon } from 'semantic-ui-react';
 
 class BookList extends Component {
 
