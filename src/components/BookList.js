@@ -14,7 +14,8 @@ class BookList extends Component {
         authors: book.volumeInfo.authors,
         publisher: book.volumeInfo.publisher,
         pageCount: book.volumeInfo.pageCount || '?',
-        averageRating: book.volumeInfo.averageRating || 'No ratings yet'
+        averageRating: book.volumeInfo.averageRating || 'No ratings yet',
+        description: book.volumeInfo.description || null
       });
     });
 
