@@ -1,6 +1,16 @@
 import React, {Component} from 'react';
 import {Grid, Card, Image, Button, Modal} from 'semantic-ui-react';
 
+const MyModal = props => (
+  <Modal trigger={<Button>See More...</Button>}>
+    <Modal.Header>Example Component</Modal.Header>
+    <Modal.Content>
+      <Modal.Description>
+        <p>{props.data.title}</p>
+      </Modal.Description>
+    </Modal.Content>
+  </Modal>
+);
 class BookList extends Component {
   render() {
     const data = this.props.data;
@@ -39,14 +49,7 @@ class BookList extends Component {
               <p>{bookItem.pageCount} pages</p>
               <p>Average Rating: {bookItem.averageRating}</p>
               <Card.Description />
-              <Modal trigger={<Button>See More...</Button>}>
-                <Modal.Header>Example Component</Modal.Header>
-                <Modal.Content>
-                  <Modal.Description>
-                    <p>{bookItem.title}</p>
-                  </Modal.Description>
-                </Modal.Content>
-              </Modal>
+              <MyModal data={bookItem} />
             </Card.Content>
           </Card>
         </Grid.Column>
