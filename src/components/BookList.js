@@ -31,7 +31,26 @@ class BookList extends Component {
                 <p>{bookItem.pageCount} pages</p>
                 <p>Average Rating: {bookItem.averageRating}</p>
                 <Card.Description></Card.Description>
-              <Button primary>See More</Button>
+                <Modal trigger={<Button primary>See More</Button>} closeIcon>
+                  <Modal.Header><h1>{bookItem.title}{bookItem.subtitle}</h1></Modal.Header>
+                  <Modal.Content image scrolling>
+                    <Image fluid src={bookItem.thumbnail} alt={bookItem.title} />
+
+                    <Modal.Description>
+                      <Header><h2>{bookItem.title}{bookItem.subtitle}</h2></Header>
+                      <h5 className="authors">{bookItem.authors}</h5>
+                      <h6 className="publisher">{bookItem.publisher}</h6>
+                      <p>{bookItem.pageCount} pages</p>
+                      <p>Average Rating: {bookItem.averageRating}</p>
+                      <p>{bookItem.description}</p>
+                    </Modal.Description>
+                  </Modal.Content>
+                  <Modal.Actions>
+                    <Button primary>
+                      <Icon name='chevron left' /> Back
+                    </Button>
+                  </Modal.Actions>
+                </Modal>
               </Card.Content>
             </Card>
         </Grid.Column>
