@@ -1,16 +1,14 @@
 import React, {Component} from 'react';
-import {Grid, Card, Image, Button, Modal} from 'semantic-ui-react';
+import {
+  Grid,
+  Card,
+  Image,
+  Button,
+  Modal,
+  Header,
+  Icon,
+} from 'semantic-ui-react';
 
-const MyModal = props => (
-  <Modal trigger={<Button>See More...</Button>}>
-    <Modal.Header>Example Component</Modal.Header>
-    <Modal.Content>
-      <Modal.Description>
-        <p>{props.data.title}</p>
-      </Modal.Description>
-    </Modal.Content>
-  </Modal>
-);
 class BookList extends Component {
   render() {
     const data = this.props.data;
@@ -26,6 +24,7 @@ class BookList extends Component {
         publisher: book.volumeInfo.publisher,
         pageCount: book.volumeInfo.pageCount || '?',
         averageRating: book.volumeInfo.averageRating || 'No ratings yet',
+        description: book.volumeInfo.description || null,
       };
     });
 
@@ -49,7 +48,36 @@ class BookList extends Component {
               <p>{bookItem.pageCount} pages</p>
               <p>Average Rating: {bookItem.averageRating}</p>
               <Card.Description />
-              <MyModal data={bookItem} />
+              <Modal trigger={<Button primary>See More</Button>} closeIcon>
+                <Modal.Header>
+                  <h1>
+                    {bookItem.title}
+                    {bookItem.subtitle}
+                  </h1>
+                </Modal.Header>
+                <Modal.Content image scrolling>
+                  <Image fluid src={bookItem.thumbnail} alt={bookItem.title} />
+
+                  <Modal.Description>
+                    <Header>
+                      <h2>
+                        {bookItem.title}
+                        {bookItem.subtitle}
+                      </h2>
+                    </Header>
+                    <h5 className="authors">{bookItem.authors}</h5>
+                    <h6 className="publisher">{bookItem.publisher}</h6>
+                    <p>{bookItem.pageCount} pages</p>
+                    <p>Average Rating: {bookItem.averageRating}</p>
+                    <p>{bookItem.description}</p>
+                  </Modal.Description>
+                </Modal.Content>
+                <Modal.Actions>
+                  <Button primary onClick={this.close} positive>
+                    <Icon name="chevron left" /> Back
+                  </Button>
+                </Modal.Actions>
+              </Modal>
             </Card.Content>
           </Card>
         </Grid.Column>

@@ -12,3 +12,8 @@
 .ui.primary.buttons .button {
   background-color: #28a745;
 }
+
+.ui.modal>.content>.icon+.description,
+.ui.modal>.content>.image+.description {
+  width: 200%;
+}
